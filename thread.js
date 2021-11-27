@@ -15,6 +15,9 @@ crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
 crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
     console.log('4:', Date.now() - start);
 });
+
+// This last entry will need to wait for the 4 calls to complete
+// Because it is taking the 4 available threads inside libuv Thread pool
 crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
     console.log('5:', Date.now() - start);
 });
